@@ -234,12 +234,11 @@
     margin-top: 8px;
   }
 
+  /* 메이슨리(벽돌형) — 세로·가로 사진 모두 원본 비율 그대로, 잘림 없음 */
   .gallery {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-auto-rows: 1fr;
-    gap: 16px;
-    max-width: 720px;
+    column-count: 2;
+    column-gap: 16px;
+    max-width: 760px;
     margin: 0 auto;
     padding: 0 24px;
   }
@@ -252,17 +251,20 @@
     border: 6px solid #fff;
     outline: 1px solid var(--line);
     background: #fff;
+    break-inside: avoid;
+    margin-bottom: 16px;
   }
-  .frame.wide { grid-column: 1 / -1; }
+  /* 가로로 넓은 사진은 한 줄 전체 차지 */
+  .frame.wide { column-span: all; }
 
   .frame img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    object-fit: contain;
     display: block;
     transition: transform 1.1s cubic-bezier(.2,.8,.2,1);
   }
-  .frame:hover img { transform: scale(1.06); }
+  .frame:hover img { transform: scale(1.04); }
 
   .frame .cap {
     position: absolute;
@@ -325,7 +327,9 @@
   }
   .reveal.show { opacity: 1; transform: translateY(0); }
 
-  @media (max-width: 480px) {
+  /* 모바일 — 갤러리를 1단으로, 사진을 가로 꽉 차게 */
+  @media (max-width: 560px) {
+    .gallery { column-count: 1; }
     .frame .cap { opacity: 1; transform: translateY(0); }
   }
 </style>
@@ -368,18 +372,51 @@
   </div>
 
   <section class="gallery">
+    <div class="frame wide reveal">
+      <img src="photo4.jpeg" alt="산 전망대에서" loading="lazy">
+      <div class="cap">산 너머 풍경을 함께 바라보며 — 가장 편안했던 순간</div>
+    </div>
     <div class="frame reveal">
-      <img src="photo1.jpeg" alt="신혼여행 골목길에서">
+      <img src="photo1.jpeg" alt="신혼여행 골목길에서" loading="lazy">
       <div class="cap">손 잡고 거닐던 돌담길 — 함께라서 좋았던 골목</div>
     </div>
     <div class="frame reveal">
-      <img src="photo2.jpeg" alt="신혼여행 거리에서">
+      <img src="photo2.jpeg" alt="신혼여행 거리에서" loading="lazy">
       <div class="cap">초록빛 거리 위, 둘만의 브이 한 컷 ✌️</div>
     </div>
     <div class="frame wide reveal">
-      <img src="photo3.jpeg" alt="신혼여행 광장에서">
+      <img src="photo6.jpeg" alt="마요르카 해변에서" loading="lazy">
+      <div class="cap">두 팔 활짝 — 마요르카의 숨은 에메랄드 해변에서</div>
+    </div>
+    <div class="frame reveal">
+      <img src="photo5.jpeg" alt="바다 앞 셀카" loading="lazy">
+      <div class="cap">에메랄드빛 바다 앞에서 인생샷 한 장 😎</div>
+    </div>
+    <div class="frame reveal">
+      <img src="photo7.jpeg" alt="에메랄드 만에서" loading="lazy">
+      <div class="cap">투명한 바다, 그 앞에 선 우리 둘</div>
+    </div>
+    <div class="frame reveal">
+      <img src="photo8.jpeg" alt="팔마 조형물에서" loading="lazy">
+      <div class="cap">PALMA — 우리가 사랑한 그 도시</div>
+    </div>
+    <div class="frame reveal">
+      <img src="photo11.jpeg" alt="밤 산책" loading="lazy">
+      <div class="cap">가로등 불빛 아래, 둘만의 고요한 밤</div>
+    </div>
+    <div class="frame reveal">
+      <img src="photo9.jpeg" alt="카페에서" loading="lazy">
+      <div class="cap">달콤한 젤라또 한 입의 여유 🍨</div>
+    </div>
+    <div class="frame reveal">
+      <img src="photo10.jpeg" alt="미술관에서" loading="lazy">
+      <div class="cap">작품 사이를 거닐던 느린 오후</div>
+    </div>
+    <div class="frame wide reveal">
+      <img src="photo3.jpeg" alt="광장에서" loading="lazy">
       <div class="cap">햇살 좋은 광장에서 — 새로운 인생의 첫 페이지</div>
     </div>
+    
   </section>
 
   <!-- Closing -->

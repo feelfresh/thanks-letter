@@ -3,3 +3,6 @@ KakaoTalk_Photo_*.jpeg
 
 # macOS
 .DS_Store
+
+# 로컬 Claude 설정
+.claude/
