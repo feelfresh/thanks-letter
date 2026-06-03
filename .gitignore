@@ -1,0 +1,5 @@
+# 안 쓰는 원본 카카오톡 사진 (photo1~3.jpeg로 대체됨)
+KakaoTalk_Photo_*.jpeg
+
+# macOS
+.DS_Store

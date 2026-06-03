@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>교수님께 드리는 감사 편지</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #3a322b;
+    --ink-soft: #5c5248;
+    --paper: #fbf7f0;
+    --paper-deep: #f3ebdd;
+    --gold: #b08d57;
+    --gold-soft: #c9a876;
+    --line: #e3d8c5;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Gowun Batang', 'Nanum Myeongjo', serif;
+    color: var(--ink);
+    background:
+      radial-gradient(circle at 20% 10%, #fdfaf3 0%, transparent 55%),
+      radial-gradient(circle at 85% 90%, #f6efe1 0%, transparent 50%),
+      #f0e7d6;
+    line-height: 1.95;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 24px;
+    position: relative;
+  }
+
+  .hero::after {
+    content: "";
+    position: absolute;
+    bottom: 34px;
+    left: 50%;
+    width: 1px;
+    height: 56px;
+    background: linear-gradient(var(--gold), transparent);
+    animation: drop 2.4s ease-in-out infinite;
+  }
+  @keyframes drop {
+    0%, 100% { opacity: .2; transform: translateY(-6px); }
+    50% { opacity: 1; transform: translateY(4px); }
+  }
+
+  .hero .eyebrow {
+    font-family: 'Cormorant Garamond', serif;
+    letter-spacing: .42em;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: var(--gold);
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: rise 1.2s ease forwards .2s;
+  }
+
+  .hero h1 {
+    font-family: 'Nanum Myeongjo', serif;
+    font-weight: 800;
+    font-size: clamp(34px, 7vw, 60px);
+    letter-spacing: .04em;
+    line-height: 1.4;
+    margin-bottom: 22px;
+    opacity: 0;
+    animation: rise 1.2s ease forwards .5s;
+  }
+
+  .hero h1 .brush {
+    color: var(--gold);
+    font-style: bold;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 800;
+  }
+
+  .hero p {
+    font-size: clamp(15px, 2.4vw, 18px);
+    color: var(--ink-soft);
+    max-width: 540px;
+    opacity: 0;
+    animation: rise 1.2s ease forwards .85s;
+  }
+
+  .ornament {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: var(--gold);
+    margin: 30px 0;
+    opacity: 0;
+    animation: rise 1.2s ease forwards 1.1s;
+  }
+  .ornament span {
+    height: 1px; width: 60px;
+    background: linear-gradient(90deg, transparent, var(--gold-soft));
+  }
+  .ornament span:last-child {
+    background: linear-gradient(90deg, var(--gold-soft), transparent);
+  }
+  .ornament .dot { font-size: 18px; }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(26px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ---------- Letter ---------- */
+  .letter-wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 20px 24px 60px;
+  }
+
+  .letter {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: clamp(34px, 6vw, 72px);
+    box-shadow: 0 30px 60px -28px rgba(90, 70, 40, .35);
+    position: relative;
+  }
+
+  .letter::before {
+    content: "";
+    position: absolute;
+    inset: 12px;
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    pointer-events: none;
+  }
+
+  .salutation {
+    font-family: 'Nanum Myeongjo', serif;
+    font-weight: 700;
+    font-size: clamp(20px, 3.6vw, 26px);
+    margin-bottom: 30px;
+    color: var(--ink);
+  }
+
+  .letter p {
+    font-size: clamp(15px, 2.3vw, 17px);
+    color: var(--ink-soft);
+    margin-bottom: 22px;
+    word-break: keep-all;
+  }
+
+  .letter p .hl {
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  .praise-box {
+    background: var(--paper-deep);
+    border-left: 3px solid var(--gold-soft);
+    padding: 20px 24px;
+    margin: 28px 0;
+    border-radius: 0 6px 6px 0;
+    font-size: clamp(14px, 2.2vw, 16px);
+    color: var(--ink-soft);
+  }
+  .praise-box .tag {
+    display: inline-block;
+    font-family: 'Cormorant Garamond', serif;
+    letter-spacing: .2em;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .praise-box em {
+    color: var(--ink);
+    font-style: normal;
+    font-weight: 700;
+  }
+
+  .signoff {
+    margin-top: 40px;
+    text-align: right;
+  }
+  .signoff .from {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--gold);
+    font-size: 17px;
+    letter-spacing: .05em;
+  }
+  .signoff .name {
+    font-family: 'Nanum Myeongjo', serif;
+    font-weight: 800;
+    font-size: clamp(20px, 4vw, 26px);
+    margin-top: 4px;
+    color: var(--ink);
+  }
+
+  /* ---------- Gallery ---------- */
+  .gallery-head {
+    text-align: center;
+    margin: 30px auto 34px;
+  }
+  .gallery-head .eyebrow {
+    font-family: 'Cormorant Garamond', serif;
+    letter-spacing: .4em;
+    text-transform: uppercase;
+    font-size: 13px;
+    color: var(--gold);
+  }
+  .gallery-head h2 {
+    font-family: 'Nanum Myeongjo', serif;
+    font-weight: 700;
+    font-size: clamp(22px, 4vw, 30px);
+    margin-top: 10px;
+    color: var(--ink);
+  }
+  .gallery-head p {
+    color: var(--ink-soft);
+    font-size: 15px;
+    margin-top: 8px;
+  }
+
+  .gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 1fr;
+    gap: 16px;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .frame {
+    position: relative;
+    overflow: hidden;
+    border-radius: 6px;
+    box-shadow: 0 18px 40px -22px rgba(90, 70, 40, .55);
+    border: 6px solid #fff;
+    outline: 1px solid var(--line);
+    background: #fff;
+  }
+  .frame.wide { grid-column: 1 / -1; }
+
+  .frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 1.1s cubic-bezier(.2,.8,.2,1);
+  }
+  .frame:hover img { transform: scale(1.06); }
+
+  .frame .cap {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    padding: 26px 18px 14px;
+    background: linear-gradient(transparent, rgba(40,30,20,.72));
+    color: #fdf7ec;
+    font-size: 13.5px;
+    letter-spacing: .02em;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: .5s ease;
+  }
+  .frame:hover .cap { opacity: 1; transform: translateY(0); }
+
+  /* ---------- Closing ---------- */
+  .closing {
+    text-align: center;
+    padding: 64px 24px 40px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .closing .quote {
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: clamp(18px, 3.2vw, 23px);
+    line-height: 1.9;
+    color: var(--ink);
+  }
+  .closing .quote .gold { color: var(--gold); }
+  .closing .seal {
+    margin: 34px auto 0;
+    width: 76px; height: 76px;
+    border-radius: 50%;
+    border: 1.5px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    font-family: 'Nanum Myeongjo', serif;
+    font-weight: 800;
+    font-size: 26px;
+    letter-spacing: -.02em;
+    background: var(--paper);
+  }
+
+  footer {
+    text-align: center;
+    padding: 30px 20px 50px;
+    color: #a99a82;
+    font-family: 'Cormorant Garamond', serif;
+    letter-spacing: .16em;
+    font-size: 12.5px;
+  }
+
+  /* ---------- Reveal on scroll ---------- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(34px);
+    transition: opacity 1s ease, transform 1s ease;
+  }
+  .reveal.show { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 480px) {
+    .frame .cap { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="eyebrow">A Letter of Gratitude</div>
+    <h1>노준용 교수님께 드리는<br><span class="brush">감사</span>의 편지</h1>
+    <div class="ornament"><span></span><span class="dot">❀</span><span></span></div>
+    <p>저희 두 사람의 새로운 시작을 축복해 주신 교수님께,<br>늦었지만 마음을 모아 인사 올립니다.</p>
+  </header>
+
+  <!-- Letter -->
+  <section class="letter-wrap">
+    <article class="letter reveal">
+      <div class="salutation">안녕하세요, 교수님 🌿</div>
+
+      <p>교수님, 제자 <span class="hl">형국</span>입니다. 결혼식을 올린 지 한 달이 훌쩍 넘어서야 이제 감사 인사를 올리게 되어 송구한 마음이 큽니다. 신혼여행을 다녀와 이런저런 세간살림을 채워 넣고 새로운 보금자리를 정비하다 보니, 정신없이 한 달이 흘러간 것만 같습니다.</p>
+
+      <p>스페인으로 떠난 신혼여행은 정말이지 즐거웠습니다. 지중해라 그런지 날씨가 더없이 좋았고, 바르셀로나도 좋았지만 무엇보다 <span class="hl">마요르카</span>의 이국적인 풍경과 에메랄드빛 바다가 마음에 오래 남았습니다.</p>
+
+      <p>바쁘신 와중에도 귀한 시간 내어 주시고, 저희 두 사람의 앞날을 따뜻하게 <span class="hl">축복해 주셔서</span> 진심으로 감사드립니다. 교수님의 <span class="hl">시그니처 축복</span> 말씀을 오랜만에 다시 듣게 되어 정말 좋았습니다. 무엇보다 하객이 아닌 신랑의 자리에서 그 말씀을 듣게 되니, 새롭고도 감회가 남달랐습니다.</p>
+
+      <p>교수님께서 해 주신 말씀처럼, 서로를 아끼며 가장 좋은 것을 먼저 챙겨 주고, 늘 칭찬하며 행복하게 잘 살아가겠습니다. 혜인이가 교수님 말씀이 무척 인상 깊었는지, 요즘 틈날 때마다 저를 칭찬해 줍니다. 침대를 정리해도 칭찬, 설거지를 해도 칭찬, 청소를 해도 칭찬입니다 😆 (그렇게 칭찬하며 "오빠가 하면 되겠다"고 합니다 ㅎㅎ)</p>
+
+      <p>다시 한번 진심으로 감사드리며, 다음 기회에 <span class="hl">세종</span>에 내려가 직접 찾아뵙고 인사 올리도록 하겠습니다. 그때까지 늘 건강하시고 평안하시길 바랍니다.</p>
+
+      <div class="signoff">
+        <div class="name">형국 올림</div>
+      </div>
+    </article>
+  </section>
+
+  <!-- Gallery -->
+  <div class="gallery-head reveal">
+    <div class="eyebrow">Our Honeymoon</div>
+    <h2>📸 신혼여행의 순간들</h2>
+  </div>
+
+  <section class="gallery">
+    <div class="frame reveal">
+      <img src="photo1.jpeg" alt="신혼여행 골목길에서">
+      <div class="cap">손 잡고 거닐던 돌담길 — 함께라서 좋았던 골목</div>
+    </div>
+    <div class="frame reveal">
+      <img src="photo2.jpeg" alt="신혼여행 거리에서">
+      <div class="cap">초록빛 거리 위, 둘만의 브이 한 컷 ✌️</div>
+    </div>
+    <div class="frame wide reveal">
+      <img src="photo3.jpeg" alt="신혼여행 광장에서">
+      <div class="cap">햇살 좋은 광장에서 — 새로운 인생의 첫 페이지</div>
+    </div>
+  </section>
+
+  <!-- Closing -->
+  <section class="closing reveal">
+    <p class="quote">서로 아끼고, 가장 좋은 것을 먼저 챙겨 주며,<br>늘 <span class="gold">칭찬하며 행복하게</span> 살겠습니다.<br>교수님, 정말 감사합니다.</p>
+    <div class="ornament" style="justify-content:center; margin-top:30px;"><span></span><span class="dot">❀</span><span></span></div>
+  </section>
+
+  <footer>HYUNGGOOG &nbsp;·&nbsp; HYEIN &nbsp;·&nbsp; 2026</footer>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        e.target.classList.add('show');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+</script>
+</body>
+</html>
